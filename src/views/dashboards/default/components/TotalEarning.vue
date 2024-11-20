@@ -27,7 +27,7 @@ const postItem = () => {
       name: itemName.value,
       description: itemDescription.value,
       image: selectedFile.value,
-      preview: previewUrl.value,
+      preview: previewUrl.value
     });
     localStorage.setItem('postedItems', JSON.stringify(postedItems.value));
 
@@ -58,13 +58,7 @@ const postItem = () => {
           <v-text-field label="Item Name" v-model="itemName" dense outlined required />
           <v-textarea label="Description" v-model="itemDescription" dense outlined rows="3" required />
           <label for="image-upload" class="d-block">Upload Image:</label>
-          <input
-            type="file"
-            id="image-upload"
-            accept="image/*"
-            class="d-none"
-            @change="onFileSelected"
-          />
+          <input type="file" id="image-upload" accept="image/*" class="d-none" @change="onFileSelected" />
           <v-btn class="mt-2" color="primary" @click="$refs.fileInputModal.click()">Choose File</v-btn>
           <input ref="fileInputModal" type="file" class="d-none" @change="onFileSelected" />
           <div v-if="previewUrl" class="mt-4">
@@ -73,7 +67,7 @@ const postItem = () => {
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn text @click="dialog = false">Cancel</v-btn>
+          <v-btn @click="dialog = false">Cancel</v-btn>
           <v-btn color="primary" @click="postItem">Post</v-btn>
         </v-card-actions>
       </v-card>
